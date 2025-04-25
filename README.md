@@ -15,3 +15,4 @@ VIN: 5J8TB4H32FL019302
 
 
 https://www.rlescalambre.net/obd-ii-communications-protocols
+https://zeromanual.com/wiki/How_to_build_a_cable_to_access_the_MBB
