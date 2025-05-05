@@ -28,3 +28,14 @@ SN65HVD230	CANH	ECU Pin B20
 ECU	A4 (BATT+)	+12V Bench Power
 	A9 (IGN)	+12V Switched (can be tied to BATT+ for bench)
 	A18 (GND)	Ground
+| Component      | Pin        | Connects To                                    |
+| -------------- | ---------- | ---------------------------------------------- |
+| **ESP32**      | GPIO4 (RX) | SN65HVD230 RXD                                 |
+|                | GPIO5 (TX) | SN65HVD230 TXD                                 |
+|                | GND        | SN65HVD230 GND and ECU A18                     |
+|                | 3.3V       | SN65HVD230 VCC                                 |
+| **SN65HVD230** | CANH       | ECU Pin B20                                    |
+|                | CANL       | ECU Pin B21                                    |
+| **ECU**        | A4 (BATT+) | +12V Bench Power                               |
+|                | A9 (IGN)   | +12V Switched (can be tied to BATT+ for bench) |
+|                | A18 (GND)  | Ground                                         |
