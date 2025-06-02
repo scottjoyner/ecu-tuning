@@ -1,0 +1,46 @@
+#include <SPI.h>
+#include <mcp_can.h>
+
+#define CAN_CS 5
+#define CAN_INT 4
+
+MCP_CAN CAN(CAN_CS); // Set CS pin
+
+void setup() {
+  Serial.begin(115200);
+  while (CAN_OK != CAN.begin(CAN_500KBPS)) {  // 500 Kbps is standard for OBD-II
+    Serial.println("CAN BUS init Failed");
+    delay(100);
+  }
+  Serial.println("CAN BUS Shield Init OK!");
+}
+
+void loop() {
+  if (CAN_MSGAVAIL == CAN.checkReceive()) {
+    long unsigned int canId;
+    unsigned char len = 0;
+    unsigned char buf[8];
+    
+    CAN.readMsgBuf(&canId, &len, buf);
+
+    Serial.print("ID: 0x");
+    Serial.print(canId, HEX);
+    Serial.print("  Data: ");
+    
+    for (int i = 0; i < len; i++) {
+      Serial.print(buf[i], HEX);
+      Serial.print(" ");
+    }
+    Serial.println();
+		File log = SD.open("/log.txt", FILE_APPEND);
+		log.print("ID: 0x");
+		log.print(canId, HEX);
+		log.print(" Data: ");
+		for (int i = 0; i < len; i++) {
+		  log.print(buf[i], HEX);
+		  log.print(" ");
+		}
+		log.println();
+		log.close();
+  }
+}
