@@ -1,4 +1,11 @@
 # ecu-tuning
+
+<!-- repo-entrypoint-guide:start -->
+> **Project status:** Research notes about understanding and modifying an engine control module; the existing [Research](#research) section records the donor vehicle context. No validated firmware-flashing method, recovery procedure, or supported ECU image is documented.
+> 
+> **Safety:** ECU alterations can damage a vehicle or create road-safety and emissions-compliance risks. Keep experiments off-road/on a bench with recovery equipment and independently verify part numbers and legal requirements.
+<!-- repo-entrypoint-guide:end -->
+
 Learning about Engine Control Modules
 
 
